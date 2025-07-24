@@ -1,29 +1,31 @@
+/* === Base Reset === */
 body {
     margin: 0;
     padding: 0;
     background: #ffffff;
-    font-family: 'Comic Sans MS', cursive;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    font-family: Consolas, 'Courier New', monospace;
+    color: #4a2336;
 }
 
+/* === Scene Base Layout === */
 .scene {
     display: none;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-sizing: border-box;
     text-align: center;
-    transition: opacity 1s ease;
 }
 
 .scene.active {
     display: flex;
 }
 
+/* === Clickable Elements === */
 .clickable {
     width: 150px;
     cursor: pointer;
@@ -34,42 +36,37 @@ body {
     transform: scale(1.1);
 }
 
-/* SCENE 2 Styling */
+/* === Scene 2 Styling === */
 #scene2 {
     background: #ffffff;
     color: #ff4d94;
-    flex-direction: column;
 }
 
-/* Text styling */
 .text {
     font-size: 1.7rem;
     margin-bottom: 2rem;
-    text-align: center;
     font-weight: bold;
     animation: fadeInText 2s ease;
 }
 
-/* Heart image */
+/* === Heart Styling === */
 .heart {
     width: 120px;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: drop-shadow(0 0 8px #ff80bf);
 }
 
-/* Bounce animation */
 .bounce {
     animation: bounce 1s infinite alternate ease-in-out;
 }
 
-/* Hover effect */
 .heart:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 15px #ff99cc);
     cursor: pointer;
 }
 
-/* Text fade-in */
+/* === Animations === */
 @keyframes fadeInText {
     from {
         opacity: 0;
@@ -82,7 +79,6 @@ body {
     }
 }
 
-/* Heart bounce animation */
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -93,40 +89,14 @@ body {
     }
 }
 
-
-.scene.active {
-    display: flex;
-}
-
-#scene3
-
-/* Scene layout */
-.scene {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    overflow-y: auto;
-    background-color: #ffffff;
-    box-sizing: border-box;
-}
-
-.scene.active {
-    display: flex;
-}
-
-/* TADAAA text */
+/* === Scene 3: Photo & Message === */
 .tadaa {
     font-size: 2rem;
     font-weight: bold;
     color: #ff66a3;
     margin-bottom: 1.5rem;
-    text-align: center;
 }
 
-/* Photo grid layout */
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -144,20 +114,17 @@ body {
     object-fit: cover;
 }
 
-/* Short sweet message */
 .short-message {
     font-size: 0.9rem;
-    color: #4a2336;
     max-width: 600px;
     padding: 0 1rem;
     line-height: 1.5;
-    text-align: center;
     margin-bottom: 2rem;
 }
 
-
-/* Next button */
-.next-btn {
+/* === Buttons === */
+.next-btn,
+.restart-btn {
     background-color: #ff99cc;
     color: white;
     border: none;
@@ -165,33 +132,29 @@ body {
     font-size: 0.85rem;
     border-radius: 30px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
 }
 
 .next-btn:hover {
     background-color: #ff66aa;
 }
 
-@media (max-width: 480px) {
-    .short-message {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    .tadaa {
-        font-size: 1.8rem;
-    }
-
-    .next-btn {
-        font-size: 0.9rem;
-    }
+.restart-btn {
+    background-color: #ffccdd;
+    color: #4a2336;
+    margin-top: 2rem;
 }
 
+.restart-btn:hover {
+    background-color: #ff99bb;
+    transform: scale(1.05);
+}
+
+/* === Scene 4: Video === */
 .video-intro {
     font-size: 1.1rem;
-    color: #4a2336;
     margin-bottom: 1.2rem;
-    text-align: center;
 }
 
 .video-frame {
@@ -215,9 +178,7 @@ body {
 
 .backup-link-text {
     font-size: 0.85rem;
-    color: #555;
     margin-top: 0.5rem;
-    text-align: center;
 }
 
 .video-link {
@@ -234,11 +195,10 @@ body {
     color: #ff3385;
 }
 
-
+/* === Scene 5: Love Letter === */
 .final-title {
     font-size: 1.6rem;
     color: #ff66a3;
-    text-align: center;
     margin-bottom: 1.5rem;
 }
 
@@ -251,7 +211,6 @@ body {
     font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 2rem;
-    color: #4a2336;
     text-align: left;
 }
 
@@ -266,21 +225,32 @@ body {
     color: #888;
 }
 
+/* === Responsive Adjustments === */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
 
-.restart-btn {
-    background-color: #ffccdd;
-    color: #4a2336;
-    border: none;
-    padding: 0.7rem 1.4rem;
-    font-size: 0.9rem;
-    border-radius: 25px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
-    transition: all 0.3s ease;
-    margin-top: 2rem;
-}
+    .short-message {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 
-.restart-btn:hover {
-    background-color: #ff99bb;
-    transform: scale(1.05);
+    .tadaa,
+    .final-title {
+        font-size: 1.4rem;
+    }
+
+    .next-btn,
+    .restart-btn {
+        font-size: 0.9rem;
+    }
+
+    .love-letter {
+        padding: 1rem;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
 }
