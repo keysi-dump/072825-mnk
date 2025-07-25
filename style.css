@@ -1,3 +1,4 @@
+
 /* Import VSCode-like font */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
@@ -56,23 +57,10 @@ body {
 }
 
 @keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    25% {
-        transform: scale(1.1);
-    }
-
-    50% {
-        transform: scale(0.95);
-    }
-
-    75% {
-        transform: scale(1.05);
-    }
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(0.95); }
+    75% { transform: scale(1.05); }
 }
 
 .heart:hover {
@@ -82,13 +70,8 @@ body {
 
 /* Bounce animation keyframes */
 @keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(-10px);
-    }
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
 }
 
 /* Scene 3 - Main message */
@@ -133,21 +116,15 @@ body {
     body {
         font-size: 14px;
     }
-
     .tadaa {
         font-size: 1.4rem;
     }
-
     .short-message {
         font-size: 0.75rem;
     }
-
-    .love-btn,
-    .next-btn,
-    .restart-btn {
+    .love-btn, .next-btn, .restart-btn {
         font-size: 0.85rem;
     }
-
     .question-text {
         font-size: 1.5rem;
     }
