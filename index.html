@@ -1,108 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>From Kate to Marx</title>
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>From Kate to Marx</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Scene 1 -->
-  <div id="scene1" class="scene active">
-    <h3>Hi My Love, Marx.</h3>
-    <img src="images/envelope.png" alt="Open me!" class="clickable envelope bounce" id="envelope" />
-    <h4>Can you help me open this?</h4>
-    <h5 style="margin-top: 20px; margin-bottom: 20px;">
-      mini webapp made by your cutest girlfriend hihi<br />
-      ♡ kate fernando (soon to be ordillano) ♡
-    </h5>
-  </div>
-
-  <!-- Scene 2 -->
-  <div id="scene2" class="scene">
-    <p class="text fade-in">Happy... uhm 🥺</p>
-    <img src="images/heart.png" alt="heart" class="clickable heart bounce" id="heart" />
-    <p class="caption">before anything else, can you please click that heart? that's mine ha! 💖</p>
-  </div>
-
-  <!-- Scene 3 -->
-  <div id="scene3" class="scene">
-    <h1 class="tadaa">Happy Monthsary, Babi! 💖</h1>
-
-    <p class="short-message">
-      that’s my heart.<br />
-      you’re my heart.<br />
-      (so corny and cheesy omg! this is not me haha!😭)<br /><br />
-      this is too random but I hope you'll like the next slides... 🥹💗<br />
-      look our first polaroid pic, i love you! praying for forever kilig.
-    </p>
-
-        <div class="photo-grid">
-      <img src="images/lovey.jpg" alt="us 1" />
-      <!-- Add more images as needed -->
+    <!-- Scene 1 -->
+    <div id="scene1" class="scene active">
+        <h3 class="fade-in">Hi My Love, Marx.</h3>
+        <img src="images/envelope.png" alt="Open me!" class="clickable envelope bounce" id="envelope"
+            onclick="triggerLoveCheck()" />
+        <h4 class="fade-in">Can you help me open this?</h4>
+        <h5 class="fade-in" style="margin-top: 20px; margin-bottom: 20px;">
+            mini webapp made by your cutest girlfriend hihi<br />
+            ♡ kate fernando (soon to be ordillano) ♡
+        </h5>
     </div>
-    
-    <button class="next-btn" onclick="goToScene(4)">Next ➜</button>
-  </div>
 
-  <!-- Scene 4 -->
-  <div id="scene4" class="scene">
-    <p class="video-intro">I hope you’ll like this… 🥺</p>
-    <div class="video-frame">
-      <iframe src="https://www.youtube.com/embed/yoDrLzmgxxY" title="Our Monthsary Video" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+
+    <!-- Love Check Scene -->
+    <div id="love-check" class="scene pink-scene heart-rain-scene">
+        <div class="heart-rain"></div>
+        <p class="question-text fade-in">Do you love me?</p>
+        <div class="button-group">
+            <button class="love-btn yes fade-in delay-1" onclick="loveAnswer(true)">Yes 💖</button>
+            <button class="love-btn no fade-in delay-2" onclick="loveAnswer(false)">No 😭</button>
+        </div>
     </div>
-    <p> i was in a bit rush editing this one since i have tons of work... but i hope you'll appreciate it. ily" </p>
-    <p class="backup-link-text">if u can't see the vid my love 👉</p>
-    <a href="https://www.youtube.com/watch?v=yoDrLzmgxxY" target="_blank" class="video-link">
-      Tap here to watch it on YouTube 💖
-    </a>
-    <button class="next-btn" onclick="goToScene(5)">Next ➜</button>
-  </div>
 
-  <!-- Scene 5: Final Letter -->
-  <div id="scene5" class="scene scrollable-scene">
-    <div class="scroll-container">
-      <h1 class="final-title">Happy First Monthsary, Love 💌</h1>
-      <div class="love-letter">
-        <p>Hi my baby,</p>
-        <p>
-          Can you believe it's already been a month? A month of corny jokes, late-night calls, and sponty trips. I never thought I'd be this soft, but here we are — you made me like this!! 😭💗
-        </p>
-        <p>
-          Still on cloud 9 bc I never expected that we'll be together like this. Sabi nga nila, expect the unexpected, thanks God I made the right choice of choosing u despite of having tons of doubts back then.
-        </p>
-        <p>
-          I poured my whole cheesy soul into this little site — kahit di pa ako pro coder, I wanted you to feel just how much I care about you. This is me, being silly, being sincere, and being completely, in love with you (CHAROT ANG CORNY HAHAHA). 🥹💘
-        </p>
-        <p>
-          So please remember this: wherever you are, no matter how far, there's a girl who’s smiling at her screen right now, supporting and thinking of you. And she's not going anywhere.
-        </p>
-        <p>
-          I know I can be makulit, madaldal, and annoying sometimes (or most of the time 😅), but thank you for staying. Please wait for me while I work on myself — I’m doing my best to be more stable, more ready, and more present… for us and u 🫶
-        </p>
-        <p>
-          I’ll try to understand you more, support you better, and love you in all the ways I know how — i hope you too.. kahit matampuhin ka hehe!
-        </p>
-        <p>
-          Thank you for being my first best boyfie. And hopefully, my last. If everything gets blurry, let's always meet halfway. To more sponty trips soon, let's work hard together okie? I love you!
-        </p>
-        <p class="love-signature">
-          Love always,<br />
-          <strong>KC (pinakadabest GF in your whole life) </strong><br />
-          <span class="date">07.28.2025</span>
-        </p>
-
-        <button class="restart-btn" onclick="goToScene(1)">↺ Wanna Watch it again?</button>
-      </div>
+    <!-- Rejection Scene -->
+    <div id="scene-reject" class="scene sad-scene">
+        <p class="tadaa fade-in">OH NOOOO!!! 😭</p>
+        <img src="images/cat.gif" alt="angry crying cat" style="width: 200px; margin: 1rem 0;" />
+        <p class="short-message fade-in">You should love KC forever!!! LAGOT KA SAKIN!!! 😾💔</p>
+        <button class="next-btn fade-in delay-1" onclick="goToScene('love-check')">Go back!!! 😡</button>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <!-- Scene 2 -->
+    <div id="scene2" class="scene">
+        <p class="text fade-in">Happy... uhm 🥺</p>
+        <img src="images/heart.png" alt="heart" class="clickable heart bounce" id="heart" />
+        <p class="caption fade-in delay-1">before anything else, can you please click that heart? that's mine ha! 💖</p>
+    </div>
+
+
+    <!-- Scene 3 -->
+    <div id="scene3" class="scene">
+        <h1 class="tadaa fade-in">Yay, ILY SO MUCHIE TOO! 💖</h1>
+        <p class="short-message fade-in delay-1">
+            that’s my heart.<br />
+            you’re my heart.<br />
+            (so corny and cheesy omg! this is not me haha!😭)<br /><br />
+            this is too random but I hope you'll like the next slides... 🥹💗<br />
+            look our first polaroid pic, i love you! praying for forever kilig.
+        </p>
+        <div class="photo-grid fade-in delay-2">
+            <img src="images/lovey.jpg" alt="us 1" />
+        </div>
+        <button class="next-btn fade-in delay-3" onclick="goToScene(4)">Next ➜</button>
+    </div>
+
+    <!-- Scene 4 -->
+    <div id="scene4" class="scene">
+        <p class="video-intro fade-in">I hope you’ll like this… 🥺</p>
+        <div class="video-frame fade-in delay-1">
+            <iframe src="https://www.youtube.com/embed/yoDrLzmgxxY" title="Our Monthsary Video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+        <p class="fade-in delay-2">i was in a bit rush editing this one since i have tons of work... but i hope you'll
+            appreciate it. ily</p>
+        <p class="backup-link-text fade-in">if u can't see the vid my love 👉</p>
+        <a href="https://www.youtube.com/watch?v=yoDrLzmgxxY" target="_blank" class="video-link fade-in">
+            Tap here to watch it on YouTube 💖
+        </a>
+        <button class="next-btn fade-in delay-3" onclick="goToScene(5)">Next ➜</button>
+    </div>
+
+    <!-- Scene 5: Final Letter -->
+    <div id="scene5" class="scene scrollable-scene">
+        <div class="scroll-container">
+            <h1 class="final-title fade-in">Happy First Monthsary, Love 💌</h1>
+            <div class="love-letter">
+                <p class="final-title fade-in">Hi my lovey! </p>
+                <p>
+                    Can you believe it's already been a month? from the first day i met u, i felt like i already know u
+                    for years..
+                    I never thought I'd be this soft, but here we are — you made me like this!! lol😭💗
+                </p>
+                <p>
+                    Still on cloud 9 bc I never expected that we'll be together like this. Sabi nga nila, expect the
+                    unexpected, thanks God I made the right choice of choosing u despite of having tons of doubts back
+                    then.
+                </p>
+                <p>
+                    I poured my whole cheesy soul into this little site — kahit di pa ako pro coder, I wanted you to
+                    feel just how much I care about you. This is me, being silly, being sincere, and being completely,
+                    in love with you (CHAROT ANG CORNY HAHAHA). 🥹💘
+                </p>
+                <p>
+                    So please remember this: wherever you are, no matter how far, there's a girl who’s smiling at her
+                    screen right now, supporting and thinking of you. And she's not going anywhere.
+                </p>
+                <p>
+                    I know I can be makulit, madaldal, and annoying sometimes (or most of the time 😅), but thank you
+                    for staying. Please wait for me while I work on myself — I’m doing my best to be more stable, more
+                    ready, and more present… for us and u 🫶
+                </p>
+                <p>
+                    I’ll try to understand you more, support you better, and love you in all the ways I know how — i
+                    hope you too.. kahit matampuhin ka hehe!
+                </p>
+                <p>
+                    Thank you for being my first best boyfie. And hopefully, my last. If everything gets blurry, let's
+                    always meet halfway. To more sponty trips soon, let's work hard together okie? I love you!
+                </p>
+                <p class="love-signature">
+                    Love always,<br />
+                    <strong>KC (pinakadabest GF in your whole life) </strong><br />
+                    <span class="date">07.28.2025</span>
+                </p>
+
+                <button class="restart-btn" onclick="goToScene(1)">↺ Wanna Watch it again?</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
