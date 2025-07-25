@@ -110,15 +110,16 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Photo grid */
+
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 0.8rem;
-    max-width: 720px;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 0.4rem;
+    max-width: 220px;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin: 1rem auto 1.5rem;
 }
+
 
 .photo-grid img {
     width: 100%;
