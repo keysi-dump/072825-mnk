@@ -1,26 +1,447 @@
-// Scene 1 → Scene 2
-document.getElementById("envelope").addEventListener("click", () => {
-    document.getElementById("scene1").classList.remove("active");
-    document.getElementById("scene2").classList.add("active");
-});
+/* Import VSCode-like font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-// Scene 2 → Scene 3 (you’ll build this next!)
-document.getElementById("heart").addEventListener("click", () => {
-    document.getElementById("scene2").classList.remove("active");
-    document.getElementById("scene3").classList.add("active");
-    // Next: show Scene 3
-});
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    font-family: 'Fira Code', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
 
+/* General scene layout */
+.scene {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    text-align: center;
+}
 
+.scene.active {
+    display: flex;
+}
 
-document.getElementById("brain").addEventListener("click", () => {
-    document.getElementById("scene3").classList.remove("active");
-    document.getElementById("scene4").classList.add("active");
-});
+/* Clickable items (envelope, heart, etc.) */
+.clickable {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-function goToScene(num) {
-    document.querySelectorAll(".scene").forEach(scene => {
-        scene.classList.remove("active");
-    });
-    document.getElementById(`scene${num}`).classList.add("active");
+.clickable:hover {
+    transform: scale(1.1);
+}
+
+/* Envelope bounce animation */
+.envelope.bounce {
+    animation: bounce 1s infinite alternate ease-in-out;
+}
+
+/* Heartbeat animation */
+.heart {
+    animation: heartbeat 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px #ff80bf);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    75% {
+        transform: scale(1.05);
+    }
+}
+
+.heart:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 15px #ff99cc);
+}
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Scene 3 - Main message */
+.tadaa {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff66a3;
+    margin-bottom: 1.5rem;
+}
+
+/* Short love message */
+.short-message {
+    font-size: 0.9rem;
+    color: #4a2336;
+    max-width: 600px;
+    padding: 0 1rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Photo grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.8rem;
+    max-width: 720px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(255, 192, 203, 0.3);
+    object-fit: cover;
+}
+
+/* Next button */
+.next-btn {
+    background-color: #ff99cc;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.next-btn:hover {
+    background-color: #ff66aa;
+}
+
+/* Video scene */
+.video-intro {
+    font-size: 1.1rem;
+    color: #4a2336;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(255, 182, 193, 0.4);
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.backup-link-text {
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.video-link {
+    display: block;
+    text-align: center;
+    color: #ff66a3;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.video-link:hover {
+    color: #ff3385;
+}
+
+/* Final letter */
+.final-title {
+    font-size: 1.6rem;
+    color: #ff66a3;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.love-letter {
+    background: #fff0f5;
+    border-radius: 15px;
+    padding: 1.5rem;
+    max-width: 680px;
+    box-shadow: 0 0 12px rgba(255, 182, 193, 0.3);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #4a2336;
+    text-align: left;
+}
+
+.love-signature {
+    margin-top: 2rem;
+    text-align: right;
+    font-style: italic;
+}
+
+.date {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Restart button */
+.restart-btn {
+    background-color: #ffccdd;
+    color: #4a2336;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.restart-btn:hover {
+    background-color: #ff99bb;
+    transform: scale(1.05);
+}
+
+/* Pink animated scene (after clicking envelope) */
+.pink-scene {
+    background-color: #ffe0f0;
+    animation: fadeInScene 1s ease-in-out;
+    color: #d63384;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sad angry cat scene */
+.sad-scene {
+    background-color: #fff5f7;
+    color: #c91f5d;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fade animation */
+@keyframes fadeInScene {
+    from {
+        opacity: 0;
+        background-color: white;
+    }
+
+    to {
+        opacity: 1;
+        background-color: #ffe0f0;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .short-message {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .tadaa {
+        font-size: 1.8rem;
+    }
+
+    .next-btn {
+        font-size: 0.9rem;
+    }
+}
+
+/* Love Check Button Styles */
+.love-btn {
+    background-color: #ffb6d9;
+    color: #4a2336;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    margin: 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.2);
+    transition: all 0.3s ease;
+    animation: popIn 0.6s ease forwards;
+}
+
+.love-btn:hover {
+    background-color: #ff8abf;
+    transform: scale(1.08);
+}
+
+/* Button Group Centering */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+/* Question Text */
+.question-text {
+    font-size: 2rem;
+    color: #d63384;
+    font-weight: bold;
+    animation: fadeInText 1s ease;
+    margin-bottom: 1rem;
+}
+
+/* Pop in animation for buttons */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Flower animation background */
+.flower-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.flower-bg::before {
+    content: "🌸";
+    position: absolute;
+    font-size: 2rem;
+    animation: floatFlowers 10s linear infinite;
+    top: -10%;
+    left: 50%;
+    opacity: 0.6;
+}
+
+@keyframes floatFlowers {
+    0% {
+        transform: translate(-50%, 0) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translate(-60%, 50vh) rotate(180deg);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate(-70%, 100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Heart Rain Container */
+.heart-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Individual Heart */
+.heart-rain .heart {
+    position: absolute;
+    top: -10px;
+    font-size: 1.5rem;
+    color: #ff66a3;
+    animation: fall 5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Ensure content is above hearts */
+.heart-rain-scene>*:not(.heart-rain) {
+    position: relative;
+    z-index: 1;
+}
+
+/* ✅ FIXED Fade In & Delay Classes */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+.delay-3 {
+    animation-delay: 1.5s;
 }
